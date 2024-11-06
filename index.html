@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AllRecipes Navbar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Copperpot&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -18,7 +21,7 @@
             background-color: #FFFFFF;
             color: #333333;
             padding: 10px 20px;
-            border-bottom: 1px solid #CCCCCC;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Adding shadow */
         }
 
         /* First line: logo, search bar, and login button */
@@ -26,7 +29,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
+            padding: 0 80px; /* Adding 80px padding on both sides */
         }
 
         .navbar .logo {
@@ -55,7 +59,9 @@
             background-size: 16px 16px;
         }
 
-        .navbar .login-button {
+        .navbar .login-link {
+            display: flex;
+            align-items: center;
             background-color: #FF6F00;
             color: #FFFFFF;
             padding: 8px 16px;
@@ -70,12 +76,17 @@
         .navbar .bottom-line {
             margin-top: 0;
             text-transform: none;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 80px; /* Increasing padding to 80px on both sides */
         }
 
         .navbar .nav-links {
             display: flex;
             gap: 20px;
-            justify-content: center;
+            justify-content: flex-start;
             flex-wrap: wrap;
             position: relative;
         }
@@ -84,10 +95,18 @@
             text-decoration: none;
             color: #333333;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: bolder;
             padding: 8px;
             text-transform: uppercase;
             position: relative;
+            transition: all 0.3s ease; /* Smooth transition for underline and color */
+        }
+
+        /* Add orange underline effect on hover for both main links */
+        .navbar .nav-links a:hover,
+        .navbar .nav-links .dropdown:hover > a {
+            text-decoration: underline;
+            text-decoration-color: #FF6F00; /* Orange underline color */
         }
 
         /* Dropdown menu container */
@@ -105,7 +124,7 @@
             display: none;
             position: absolute;
             background-color: #fff;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             min-width: 160px;
             z-index: 1;
         }
@@ -117,11 +136,53 @@
             display: block;
             color: #333333;
             font-weight: normal;
+            text-transform: capitalize;
+            transition: background-color 0.3s ease; /* Smooth transition for background color */
+        }
+
+        /* Add grey background effect on hover for dropdown menu links */
+        .navbar .nav-links .dropdown-content a:hover {
+            background-color: #f0f0f0; /* Grey background on hover */
         }
 
         /* Show the dropdown on hover */
         .navbar .nav-links .dropdown:hover .dropdown-content {
             display: block;
+        }
+
+        /* Blue information bar */
+        .info-bar {
+            /* margin-top: 50px; */
+            background-color: #004990;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .info-bar span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .info-bar .highlight {
+            color: #FFD700; /* Gold color for highlight */
+            font-weight: bold;
+            font-size: 28px;
+        }
+
+        /* Icon circles */
+        .info-bar .dot {
+            height: 8px;
+            width: 8px;
+            background-color: #FF6F00; /* Orange dot color */
+            border-radius: 50%;
+            display: inline-block;
         }
 
         /* Responsive adjustments */
@@ -150,6 +211,14 @@
                 font-size: 14px;
             }
         }
+
+        .navbar .get-magazine {
+            color: #FF6F00;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase; /* Capitalize text */
+        }
     </style>
 </head>
 <body>
@@ -166,8 +235,8 @@
                 <input type="text" placeholder="Search recipes...">
             </div>
 
-            <!-- Login button -->
-            <a href="#login" class="login-button">Login</a>
+            <!-- Login link without user icon -->
+            <a href="#login" class="login-link">Login</a>
         </div>
 
         <!-- Second line: Links -->
@@ -178,86 +247,103 @@
                 <div class="dropdown">
                     <a href="#">Dinner</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Vegetables</a>
-                        <a href="#fruits">Fruits</a>
-                        <a href="#spices">Spices</a>
+                        <a href="#vegetables">5-Ingredient Dinners</a>
+                        <a href="#fruits">One-Pot Meals</a>
+                        <a href="#spices">Quick & Easy</a>
+                        <a href="#spices">30-Minute Meals</a>
+                        <a href="#spices">Family Dinners</a>
+                        <a href="#spices">Comfort Food</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">Meals</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Vegetables</a>
-                        <a href="#fruits">Fruits</a>
-                        <a href="#spices">Spices</a>
+                        <a href="#vegetables">Breakfast</a>
+                        <a href="#fruits">Lunch</a>
+                        <a href="#spices">Healthy</a>
+                        <a href="#spices">Appetizers</a>
+                        <a href="#spices">Salads</a>
+                        <a href="#spices">Drinks</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">Ingredients</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Vegetables</a>
-                        <a href="#fruits">Fruits</a>
-                        <a href="#spices">Spices</a>
+                        <a href="#vegetables">Chicken</a>
+                        <a href="#fruits">Beef</a>
+                        <a href="#spices">Pork</a>
+                        <a href="#spices">Seafood</a>
+                        <a href="#spices">Pasta</a>
+                        <a href="#spices">Fruits</a>
+                        <a href="#spices">Vegetables</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">Occasions</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Vegetables</a>
-                        <a href="#fruits">Fruits</a>
-                        <a href="#spices">Spices</a>
+                        <a href="#vegetables">Thanksgiving Recipies</a>
+                        <a href="#fruits">Tailgating</a>
+                        <a href="#spices">Pie Recipies</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">Cuisines</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Vegetables</a>
-                        <a href="#fruits">Fruits</a>
-                        <a href="#spices">Spices</a>
+                        <a href="#vegetables">Mexican</a>
+                        <a href="#fruits">Italian</a>
+                        <a href="#spices">Chinese</a>
+                        <a href="#spices">India</a>
+                        <a href="#spices">Japanese</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">Kitchen Tips</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Vegetables</a>
-                        <a href="#fruits">Fruits</a>
-                        <a href="#spices">Spices</a>
+                        <a href="#vegetables">Instant Pot</a>
+                        <a href="#fruits">Air Fryer</a>
+                        <a href="#spices">Slow Cooker</a>
+                        <a href="#spices">Our Favourite Products</a>
+                        <a href="#spices">BBQ & Grilling</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">News</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Vegetables</a>
-                        <a href="#fruits">Fruits</a>
-                        <a href="#spices">Spices</a>
+                        <a href="#vegetables">Celebrity & Entertainment</a>
+                        <a href="#fruits">Fast Food</a>
+                        <a href="#spices">Trends</a>
+                        <a href="#spices">Grocery</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
-                    <a href="#">Festures</a>
+                    <a href="#">Features</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Vegetables</a>
-                        <a href="#fruits">Fruits</a>
-                        <a href="#spices">Spices</a>
+                        <a href="#vegetables">Dinner Fix</a>
+                        <a href="#fruits">Sweet Spot</a>
+                        <a href="#spices">In the Kitchen</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">About Us</a>
-                    <div class="dropdown-content">
-                        <a href="#vegetables">Vegetables</a>
-                        <a href="#fruits">Fruits</a>
-                        <a href="#spices">Spices</a>
-                    </div>
                 </div>
             </div>
+            <!-- Get Magazine link -->
+            <a href="#get-magazine" class="get-magazine">Get Magazine</a>
         </div>
     </div>
 
+    <div class="info-bar">
+        <span><span class="dot"></span> <span class="highlight">Holiday Baking:</span> Get ready for cookie season!</span>
+        <span><span class="dot"></span> <b>100K+</b> Original Recipies</span>
+        <span><span class="dot"></span> <b>6.9M+</b> Ratings and Reviews</span>
+    </div>
 </body>
 </html>
