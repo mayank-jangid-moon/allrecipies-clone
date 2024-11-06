@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AllRecipes Navbar</title>
+    <title>About Us - AllRecipes</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Copperpot&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-
     <style>
         * {
             margin: 0;
@@ -16,15 +15,96 @@
             font-family: 'Source Sans Pro', sans-serif;
         }
 
-        /* Navbar container */
+        html {
+            scroll-behavior: smooth; /* Enable smooth scrolling */
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            display: flex;
+        }
+
+        .container {
+            width: 70%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 25%; /* Add margin to segregate from sidebar */
+            margin-top: 150px; /* Add margin to segregate from navbar */
+        }
+
+        .sidebar {
+            width: 20%;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh; /* Full vertical height */
+            overflow-y: auto;
+            padding-top: 100px; /* Add padding to avoid overlapping with navbar */
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .sidebar a:hover {
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #FF6F00;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #004990;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #FF6F00;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
         .navbar {
             background-color: #FFFFFF;
             color: #333333;
             padding: 10px 20px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Adding shadow */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* First line: logo, search bar, and login button */
         .navbar .top-line {
             display: flex;
             align-items: center;
@@ -72,7 +152,6 @@
             margin-right: 0;
         }
 
-        /* Second line: nav links */
         .navbar .bottom-line {
             margin-top: 0;
             text-transform: none;
@@ -102,24 +181,20 @@
             transition: all 0.3s ease; /* Smooth transition for underline and color */
         }
 
-        /* Add orange underline effect on hover for both main links */
         .navbar .nav-links a:hover,
         .navbar .nav-links .dropdown:hover > a {
             text-decoration: underline;
             text-decoration-color: #FF6F00; /* Orange underline color */
         }
 
-        /* Dropdown menu container */
         .navbar .nav-links .dropdown {
             position: relative;
         }
 
-        /* Dropdown button */
         .navbar .nav-links .dropdown > a {
             cursor: pointer;
         }
 
-        /* Dropdown menu items */
         .navbar .nav-links .dropdown-content {
             display: none;
             position: absolute;
@@ -129,7 +204,6 @@
             z-index: 1;
         }
 
-        /* Links inside dropdown */
         .navbar .nav-links .dropdown-content a {
             padding: 12px 16px;
             text-decoration: none;
@@ -140,19 +214,15 @@
             transition: background-color 0.3s ease; /* Smooth transition for background color */
         }
 
-        /* Add grey background effect on hover for dropdown menu links */
         .navbar .nav-links .dropdown-content a:hover {
             background-color: #f0f0f0; /* Grey background on hover */
         }
 
-        /* Show the dropdown on hover */
         .navbar .nav-links .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        /* Blue information bar */
         .info-bar {
-            /* margin-top: 50px; */
             background-color: #004990;
             color: white;
             padding: 10px;
@@ -162,6 +232,7 @@
             justify-content: center;
             gap: 30px;
             font-family: 'Cinzel', serif;
+            margin-top: 100px; /* Add margin to avoid overlapping with navbar */
         }
 
         .info-bar span {
@@ -176,7 +247,6 @@
             font-size: 28px;
         }
 
-        /* Icon circles */
         .info-bar .dot {
             height: 8px;
             width: 8px;
@@ -185,7 +255,6 @@
             display: inline-block;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .navbar .search-bar input {
                 width: 60%;
@@ -332,18 +401,56 @@
                 </div>
 
                 <div class="dropdown">
-                    <a href="about_us.html">About Us</a>
+                    <a href="#">About Us</a>
                 </div>
             </div>
             <!-- Get Magazine link -->
-            <a href="Assets/magazine.pdf" target="_blank" class="get-magazine">Get Magazine</a>
+            <a href="#get-magazine" class="get-magazine">Get Magazine</a>
         </div>
     </div>
 
-    <div class="info-bar">
-        <span><span class="dot"></span> <span class="highlight">Holiday Baking:</span> Get ready for cookie season!</span>
-        <span><span class="dot"></span> <b>100K+</b> Original Recipies</span>
-        <span><span class="dot"></span> <b>6.9M+</b> Ratings and Reviews</span>
+    <div class="sidebar">
+        <a href="#about">About AllRecipes</a>
+        <a href="#mission">Our Mission</a>
+        <a href="#community">Our Community</a>
+        <a href="#quality">Quality You Can Trust</a>
+        <a href="#features">Our Features</a>
+        <a href="#promise">Our Promise</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#join">Join Us!</a>
     </div>
+
+    <div class="container">
+        <h1 id="about">About AllRecipes</h1>
+        <p>AllRecipes is a trusted community of home cooks, culinary experts, and food enthusiasts who come together to share, create, and explore the world of cooking. Since its inception, AllRecipes has become a go-to resource for millions of people seeking inspiration, guidance, and recipes that are easy to make and delicious.</p>
+
+        <h2 id="mission">Our Mission</h2>
+        <p>At AllRecipes, our mission is to empower people to cook confidently and enjoy the process of making food. We believe that everyone can be a great cook with the right support, which is why we provide reliable recipes, step-by-step instructions, and helpful tips that make cooking accessible to everyone.</p>
+
+        <h2 id="community">Our Community</h2>
+        <p>With over <span class="highlight">100K+ recipes</span> and contributions from people all over the world, our community is at the heart of everything we do. From classic family recipes to innovative new dishes, the diversity of our recipe collection reflects the creativity and passion of our users.</p>
+
+        <h2 id="quality">Quality You Can Trust</h2>
+        <p>We understand that quality matters. That’s why every recipe on AllRecipes is rigorously tested and reviewed by our team to ensure that you can trust the recipes to work every time. Our reviews and ratings from real users offer additional insights to help you make informed decisions in the kitchen.</p>
+
+        <h2 id="features">Our Features</h2>
+        <p>Beyond recipes, AllRecipes offers a range of features to support your culinary journey:</p>
+        <ul>
+            <li>Step-by-step cooking videos and guides</li>
+            <li>Personalized recipe recommendations</li>
+            <li>Meal planning tools and shopping lists</li>
+            <li>In-depth articles on cooking techniques, ingredient spotlights, and seasonal guides</li>
+        </ul>
+
+        <h2 id="promise">Our Promise</h2>
+        <p>We are dedicated to creating a welcoming space where everyone can share their love for cooking. We promise to continue providing reliable recipes, support, and inspiration to make every cooking experience enjoyable and successful.</p>
+
+        <h2 id="contact">Contact Us</h2>
+        <p>If you have any questions, feedback, or suggestions, we’d love to hear from you. Reach out to us through our <a href="https://www.allrecipes.com/contact-us">Contact Us</a> page.</p>
+
+        <h2 id="join">Join Us!</h2>
+        <p>Join the AllRecipes community today and start sharing your recipes, reviewing dishes, and discovering new culinary inspiration. Together, we’re making cooking a joyful and rewarding experience for everyone.</p>
+    </div>
+
 </body>
 </html>

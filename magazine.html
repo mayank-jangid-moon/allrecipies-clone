@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AllRecipes Navbar</title>
+    <title>Magazine - AllRecipes</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Copperpot&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-
     <style>
         * {
             margin: 0;
@@ -16,15 +15,23 @@
             font-family: 'Source Sans Pro', sans-serif;
         }
 
-        /* Navbar container */
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
         .navbar {
             background-color: #FFFFFF;
             color: #333333;
             padding: 10px 20px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Adding shadow */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* First line: logo, search bar, and login button */
         .navbar .top-line {
             display: flex;
             align-items: center;
@@ -72,7 +79,6 @@
             margin-right: 0;
         }
 
-        /* Second line: nav links */
         .navbar .bottom-line {
             margin-top: 0;
             text-transform: none;
@@ -102,24 +108,20 @@
             transition: all 0.3s ease; /* Smooth transition for underline and color */
         }
 
-        /* Add orange underline effect on hover for both main links */
         .navbar .nav-links a:hover,
         .navbar .nav-links .dropdown:hover > a {
             text-decoration: underline;
             text-decoration-color: #FF6F00; /* Orange underline color */
         }
 
-        /* Dropdown menu container */
         .navbar .nav-links .dropdown {
             position: relative;
         }
 
-        /* Dropdown button */
         .navbar .nav-links .dropdown > a {
             cursor: pointer;
         }
 
-        /* Dropdown menu items */
         .navbar .nav-links .dropdown-content {
             display: none;
             position: absolute;
@@ -129,7 +131,6 @@
             z-index: 1;
         }
 
-        /* Links inside dropdown */
         .navbar .nav-links .dropdown-content a {
             padding: 12px 16px;
             text-decoration: none;
@@ -140,52 +141,32 @@
             transition: background-color 0.3s ease; /* Smooth transition for background color */
         }
 
-        /* Add grey background effect on hover for dropdown menu links */
         .navbar .nav-links .dropdown-content a:hover {
             background-color: #f0f0f0; /* Grey background on hover */
         }
 
-        /* Show the dropdown on hover */
         .navbar .nav-links .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        /* Blue information bar */
-        .info-bar {
-            /* margin-top: 50px; */
-            background-color: #004990;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            font-size: 25px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            font-family: 'Cinzel', serif;
-        }
-
-        .info-bar span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .info-bar .highlight {
-            color: #FFD700; /* Gold color for highlight */
+        .navbar .get-magazine {
+            color: #FF6F00;
+            text-decoration: none;
             font-weight: bold;
-            font-size: 28px;
+            font-size: 16px;
+            text-transform: uppercase; /* Capitalize text */
         }
 
-        /* Icon circles */
-        .info-bar .dot {
-            height: 8px;
-            width: 8px;
-            background-color: #FF6F00; /* Orange dot color */
-            border-radius: 50%;
-            display: inline-block;
+        .pdf-container {
+            flex-grow: 1;
+            margin-top: 120px; /* Add more margin to avoid overlapping with navbar */
         }
 
-        /* Responsive adjustments */
+        .pdf-container embed {
+            width: 100%;
+            height: calc(100vh - 120px); /* Full height minus navbar height */
+        }
+
         @media (max-width: 768px) {
             .navbar .search-bar input {
                 width: 60%;
@@ -210,14 +191,6 @@
             .navbar .nav-links a {
                 font-size: 14px;
             }
-        }
-
-        .navbar .get-magazine {
-            color: #FF6F00;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            text-transform: uppercase; /* Capitalize text */
         }
     </style>
 </head>
@@ -340,10 +313,9 @@
         </div>
     </div>
 
-    <div class="info-bar">
-        <span><span class="dot"></span> <span class="highlight">Holiday Baking:</span> Get ready for cookie season!</span>
-        <span><span class="dot"></span> <b>100K+</b> Original Recipies</span>
-        <span><span class="dot"></span> <b>6.9M+</b> Ratings and Reviews</span>
+    <div class="pdf-container">
+        <embed src="Assets/magazine.pdf" type="application/pdf">
     </div>
+
 </body>
 </html>
