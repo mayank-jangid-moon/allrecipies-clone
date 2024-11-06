@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllRecipes Navbar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        /* Navbar container */
+        .navbar {
+            background-color: #FFFFFF;
+            color: #333333;
+            padding: 10px 20px;
+            border-bottom: 1px solid #CCCCCC;
+        }
+
+        /* First line: logo, search bar, and login button */
+        .navbar .top-line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .navbar .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #FF6F00;
+            text-decoration: none;
+            margin-left: 0;
+            align-self: center;
+        }
+
+        .navbar .search-bar {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar .search-bar input {
+            width: 250px;
+            padding: 6px 12px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            font-size: 14px;
+            padding-left: 35px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23999" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 10-1.397 1.397l3.85 3.85a1 1 0 001.414-1.414l-3.85-3.85zm-5.242 1.156a5 5 0 110-10 5 5 0 010 10z"/></svg>') no-repeat 10px center;
+            background-size: 16px 16px;
+        }
+
+        .navbar .login-button {
+            background-color: #FF6F00;
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 14px;
+            margin-right: 0;
+        }
+
+        /* Second line: nav links */
+        .navbar .bottom-line {
+            margin-top: 0;
+            text-transform: none;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        /* Dropdown menu container */
+        .navbar .nav-links .dropdown {
+            position: relative;
+        }
+
+        /* Dropdown button */
+        .navbar .nav-links .dropdown > a {
+            cursor: pointer;
+        }
+
+        /* Dropdown menu items */
+        .navbar .nav-links .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        /* Links inside dropdown */
+        .navbar .nav-links .dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: #333333;
+            font-weight: normal;
+        }
+
+        /* Show the dropdown on hover */
+        .navbar .nav-links .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar .search-bar input {
+                width: 60%;
+            }
+
+            .navbar .top-line {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar .bottom-line {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 30px;
+            }
+
+            .navbar .nav-links {
+                gap: 10px;
+                justify-content: flex-start;
+            }
+
+            .navbar .nav-links a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <!-- First line: Logo, Search bar, and Login button -->
+        <div class="top-line">
+            <!-- Logo -->
+            <a href="/" class="logo">AllRecipes</a>
+
+            <!-- Search bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search recipes...">
+            </div>
+
+            <!-- Login button -->
+            <a href="#login" class="login-button">Login</a>
+        </div>
+
+        <!-- Second line: Links -->
+        <div class="bottom-line">
+            <!-- Links -->
+            <div class="nav-links">
+                <!-- Dropdown Menu -->
+                <div class="dropdown">
+                    <a href="#">Dinner</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Vegetables</a>
+                        <a href="#fruits">Fruits</a>
+                        <a href="#spices">Spices</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Meals</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Vegetables</a>
+                        <a href="#fruits">Fruits</a>
+                        <a href="#spices">Spices</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Ingredients</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Vegetables</a>
+                        <a href="#fruits">Fruits</a>
+                        <a href="#spices">Spices</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Occasions</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Vegetables</a>
+                        <a href="#fruits">Fruits</a>
+                        <a href="#spices">Spices</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Cuisines</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Vegetables</a>
+                        <a href="#fruits">Fruits</a>
+                        <a href="#spices">Spices</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Kitchen Tips</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Vegetables</a>
+                        <a href="#fruits">Fruits</a>
+                        <a href="#spices">Spices</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">News</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Vegetables</a>
+                        <a href="#fruits">Fruits</a>
+                        <a href="#spices">Spices</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Festures</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Vegetables</a>
+                        <a href="#fruits">Fruits</a>
+                        <a href="#spices">Spices</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Vegetables</a>
+                        <a href="#fruits">Fruits</a>
+                        <a href="#spices">Spices</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
