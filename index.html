@@ -31,6 +31,11 @@
             justify-content: space-between;
             margin-bottom: 30px;
             padding: 0 80px; /* Adding 80px padding on both sides */
+            padding-top: 20px;
+            position: sticky;
+            top: 0;
+            background-color: #FFFFFF;
+            z-index: 1001; /* Increase z-index to ensure it stays on top */
         }
 
         .navbar .logo {
@@ -81,6 +86,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 80px; /* Increasing padding to 80px on both sides */
+            z-index: 1000; /* Ensure it stays below the top line */
         }
 
         .navbar .nav-links {
@@ -219,6 +225,232 @@
             font-size: 16px;
             text-transform: uppercase; /* Capitalize text */
         }
+
+        /* Spotlight post styles */
+        .spotlight-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            margin: 40px 0;
+            margin-left: 150px;
+        }
+
+        .spotlight-post {
+            flex: 3;
+            text-align: left;
+        }
+
+        .spotlight-post img {
+            width: auto; /* Ensure the image occupies the same width as the text */
+            height: auto;
+            border-radius: 8px;
+            /* Remove box shadow */
+            margin-top: 20px;
+        }
+
+        .spotlight-post h2 {
+            margin-top: 20px;
+            font-size: 30px;
+            color: #333333;
+            font-family: 'Playfair Display', serif;
+            max-width: 100%; /* Ensure text does not exceed image width */
+        }
+
+        .spotlight-post h2 + h2 {
+            margin-top: 5px; /* Decrease the spacing between the two h2 elements */
+        }
+
+        .spotlight-post p {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #666666;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .latest-news {
+            flex: 1;
+            max-width: 30%; /* Increase the width of the news section */
+            background-color: #f5f6ea; /* Change background color to #f5f6ea */
+            padding: 20px;
+            border-radius: 8px;
+            /* Remove box shadow */
+            margin-right: 150px;
+            margin-top: 20px;
+        }
+
+        .latest-news h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333333;
+            font-family: 'Cinzel', serif;
+        }
+
+        .latest-news ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .latest-news ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .latest-news ul li img,
+        .latest-news ul li video {
+            width: 120px;
+            height: 80px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .latest-news ul li a {
+            text-decoration: none;
+            color: #000000; /* Change text color to black */
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: bold; /* Make text bolder */
+            transition: color 0.3s ease;
+        }
+
+        .latest-news ul li a:hover {
+            color: #333333;
+        }
+
+        .gallery-container {
+            margin: 40px 150px; /* Add margin to separate from other content */
+        }
+
+        .gallery-title {
+            font-size: 28px;
+            font-family: 'Cinzel', serif;
+            color: #333333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            text-align: center;
+            text-align: justify;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .gallery-item .category {
+            font-size: 14px;
+            color: #666666;
+            margin-top: 10px;
+        }
+
+        .gallery-item .product-name {
+            font-size: 18px;
+            color: #333333;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .gallery-item .rating {
+            font-size: 16px;
+            color: #FF6F00;
+            margin-top: 5px;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border: 2px solid #e6e6e6;
+            /* width: 90%; Match the width of other divisions */
+            margin-top: 20px;
+            margin-left: 150px;
+            margin-right: 150px;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .search-prompt {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-prompt h2 {
+            font-size: 18px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-prompt h2 img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .search-bar {
+            margin-left: 40px; /* Increase spacing between search box and text buttons */
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            width: 250px;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #e6e6e6;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .search-bar button {
+            padding: 8px;
+            background-color: #e4572e;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .popular-searches {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .popular-searches h3 {
+            font-size: 14px;
+            margin: 0 0 10px;
+        }
+
+        .popular-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            max-width: 400px; /* Adjust width to fit buttons into two horizontal lines */
+        }
+
+        .popular-tag {
+            padding: 6px 12px;
+            background-color: #e4572e;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .popular-tag:hover {
+            background-color: #c33f22;
+        }
     </style>
 </head>
 <body>
@@ -344,6 +576,102 @@
         <span><span class="dot"></span> <span class="highlight">Holiday Baking:</span> Get ready for cookie season!</span>
         <span><span class="dot"></span> <b>100K+</b> Original Recipies</span>
         <span><span class="dot"></span> <b>6.9M+</b> Ratings and Reviews</span>
+    </div>
+
+    <!-- Spotlight Post and Latest News -->
+    <div class="spotlight-container">
+        <div class="spotlight-post">
+            <img src="Assets/landing_page/top_post.jpg" alt="Spotlight Image">
+            <h2>20 Things to Cook This Month That Have Nothing to Do</h2> <h2>With Thanksgiving</h2>
+            <p>Here are dinner ideas for rest of the November</p>
+        </div>
+        <div class="latest-news">
+            <h3>Latest News & Updates</h3>
+            <ul>
+                <li>
+                    <img src="Assets/landing_page/news1.webp" alt="News 1">
+                    <a href="#">New Recipe: Pumpkin Spice Latte</a>
+                </li>
+                <li>
+                    <video src="Assets/landing_page/news2.mp4" loop></video>
+                    <a href="#">Top 10 Fall Desserts</a>
+                </li>
+                <li>
+                    <img src="Assets/landing_page/news3.webp" alt="News 3">
+                    <a href="#">How to Cook the Perfect Turkey</a>
+                </li>
+                <li>
+                    <video src="Assets/landing_page/news4.mp4" loop></video>
+                    <a href="#">5 Tips for Holiday Baking</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="gallery-container">
+        <div class="gallery-title">Casserole Classics</div>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="Assets/landing_page/gallery1.webp" alt="Casserole 1">
+                <div class="category">MACRONI AND CHEESE RECIPIE</div>
+                <div class="product-name">Chili Dog Mac and Cheese</div>
+                <div class="rating">★★★★☆</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Assets/landing_page/gallery2.webp" alt="Casserole 2">
+                <div class="category">PASTA</div>
+                <div class="product-name">Chicker Carbonara Pasta Bake</div>
+                <div class="rating">★★★★★</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Assets/landing_page/gallery3.webp" alt="Casserole 3">
+                <div class="category">HAM</div>
+                <div class="product-name">Ham, Potato and Broccoli Casserole</div>
+                <div class="rating">★★★☆☆</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Assets/landing_page/gallery4.webp" alt="Casserole 4">
+                <div class="category">GROUND BEEF</div>
+                <div class="product-name">Moussaka</div>
+                <div class="rating">★★★★☆</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Assets/landing_page/gallery5.webp" alt="Casserole 5">
+                <div class="category">TATER TOTS</div>
+                <div class="product-name">Tater Tot Hotshish</div>
+                <div class="rating">★★★★★</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Assets/landing_page/gallery6.webp" alt="Casserole 6">
+                <div class="category">TUNA</div>
+                <div class="product-name">Chef John's Tuna Noodle Casserole</div>
+                <div class="rating">★★★☆☆</div>
+            </div>
+        </div>
+    </div>
+<br>
+    <!-- Add the search box here -->
+    <div class="search-container">
+        <div class="search-prompt">
+            <h2><img src="https://img.icons8.com/color/48/000000/chef-hat.png" alt="Chef Hat"> What would you like to cook?</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Search here...">
+                <button type="submit">&#128269;</button>
+            </div>
+        </div>
+        <div class="popular-searches">
+            <h3>Popular Searches</h3>
+            <div class="popular-tags">
+                <a href="#" class="popular-tag">Chicken</a>
+                <a href="#" class="popular-tag">Smoothies</a>
+                <a href="#" class="popular-tag">Banana Bread</a>
+                <a href="#" class="popular-tag">Lasagna</a>
+                <a href="#" class="popular-tag">Pancakes</a>
+                <a href="#" class="popular-tag">Meatloaf</a>
+                <a href="#" class="popular-tag">Cookies</a>
+                <a href="#" class="popular-tag">Tacos</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
