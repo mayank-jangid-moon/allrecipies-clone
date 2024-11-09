@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tater Tot Casserole Recipe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Copperpot&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+        }
+        .container {
+            max-width: 700px; /* Decrease the width */
+            margin: 20px auto 20px 150px; /* Shift to the left */
+            padding: 20px;
+            background: #fff;
+        }
+        .title {
+            font-size: 2em;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            color: #333333;
+        }
+        .rating, .author, .buttons {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .rating span {
+            color: #e67e22;
+            font-size: 1.2em;
+        }
+        .buttons button {
+            margin-right: 10px;
+            padding: 10px;
+            background-color: #FF6F00; /* Match color from index.html */
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 0.9em;
+            border-radius: 4px; /* Add border-radius for curved buttons */
+        }
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .image-container video {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .internal-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .internal-links a {
+            color: #FF6F00;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .time-info {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f9c74f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .description {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #333333;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        .ingredients {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #333333;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        .ingredients ul {
+            list-style-type: none; /* Remove default bullets */
+            padding-left: 20px; /* Add padding for list bullets */
+        }
+        .ingredients ul li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .ingredients ul li::before {
+            content: "•";
+            color: #e67e22; /* Orange color for bullet points */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        .directions {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #333333;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        .directions .step-title {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .directions p {
+            margin-bottom: 10px;
+        }
+        .image-end {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .image-end img {
+            width: 100%; /* Make the width of the image the same as the division */
+            border-radius: 10px;
+        }
+        .nutrition-facts {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #333333;
+            line-height: 1.5;
+            text-align: justify;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .nutrition-facts h2 {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .nutrition-facts .nutrient-row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .nutrition-facts .nutrient-row div {
+            flex: 1;
+            text-align: center;
+        }
+        .nutrition-facts .nutrient-row div.amount {
+            font-weight: bold;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Navbar container */
+        .navbar {
+            background-color: #FFFFFF;
+            color: #333333;
+            padding: 10px 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Adding shadow */
+        }
+
+        /* First line: logo, search bar, and login button */
+        .navbar .top-line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 0 80px; /* Adding 80px padding on both sides */
+            padding-top: 20px;
+            background-color: #FFFFFF;
+            z-index: 1001; /* Increase z-index to ensure it stays on top */
+        }
+
+        .navbar .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #FF6F00;
+            text-decoration: none;
+            margin-left: 0;
+            align-self: center;
+        }
+
+        .navbar .search-bar {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar .search-bar input {
+            width: 250px;
+            padding: 6px 12px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            font-size: 14px;
+            padding-left: 35px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23999" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 10-1.397 1.397l3.85 3.85a1 1 0 001.414-1.414l-3.85-3.85zm-5.242 1.156a5 5 0 110-10 5 5 0 010 10z"/></svg>') no-repeat 10px center;
+            background-size: 16px 16px;
+        }
+
+        .navbar .login-link {
+            display: flex;
+            align-items: center;
+            background-color: #FF6F00;
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 14px;
+            margin-right: 0;
+        }
+
+        /* Second line: nav links */
+        .navbar .bottom-line {
+            margin-top: 0;
+            text-transform: none;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 80px; /* Increasing padding to 80px on both sides */
+            z-index: 1000; /* Ensure it stays below the top line */
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 16px;
+            font-weight: bolder;
+            padding: 8px;
+            text-transform: uppercase;
+            position: relative;
+            transition: all 0.3s ease; /* Smooth transition for underline and color */
+        }
+
+        /* Add orange underline effect on hover for both main links */
+        .navbar .nav-links a:hover,
+        .navbar .nav-links .dropdown:hover > a {
+            text-decoration: underline;
+            text-decoration-color: #FF6F00; /* Orange underline color */
+        }
+
+        /* Dropdown menu container */
+        .navbar .nav-links .dropdown {
+            position: relative;
+        }
+
+        /* Dropdown button */
+        .navbar .nav-links .dropdown > a {
+            cursor: pointer;
+        }
+
+        /* Dropdown menu items */
+        .navbar .nav-links .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        /* Links inside dropdown */
+        .navbar .nav-links .dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: #333333;
+            font-weight: normal;
+            text-transform: capitalize;
+            transition: background-color 0.3s ease; /* Smooth transition for background color */
+        }
+
+        /* Add grey background effect on hover for dropdown menu links */
+        .navbar .nav-links .dropdown-content a:hover {
+            background-color: #f0f0f0; /* Grey background on hover */
+        }
+
+        /* Show the dropdown on hover */
+        .navbar .nav-links .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar .get-magazine {
+            color: #FF6F00;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase; /* Capitalize text */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        .directions img {
+            width: 100%; /* Make the width of the image the same as the division */
+            border-radius: 10px;
+            margin-top: 10px; /* Add some margin to separate the images from the text */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <!-- First line: Logo, Search bar, and Login button -->
+        <div class="top-line">
+            <!-- Logo -->
+            <a href="/" class="logo">AllRecipes</a>
+
+            <!-- Search bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search recipes...">
+            </div>
+
+            <!-- Login link without user icon -->
+            <a href="login.html" class="login-link">Login</a>
+        </div>
+
+        <!-- Second line: Links -->
+        <div class="bottom-line">
+            <!-- Links -->
+            <div class="nav-links">
+                <!-- Dropdown Menu -->
+                <div class="dropdown">
+                    <a href="#">Dinner</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">5-Ingredient Dinners</a>
+                        <a href="#fruits">One-Pot Meals</a>
+                        <a href="#spices">Quick & Easy</a>
+                        <a href="#spices">30-Minute Meals</a>
+                        <a href="#spices">Family Dinners</a>
+                        <a href="#spices">Comfort Food</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Meals</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Breakfast</a>
+                        <a href="#fruits">Lunch</a>
+                        <a href="#spices">Healthy</a>
+                        <a href="#spices">Appetizers</a>
+                        <a href="#spices">Salads</a>
+                        <a href="#spices">Drinks</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Ingredients</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Chicken</a>
+                        <a href="#fruits">Beef</a>
+                        <a href="#spices">Pork</a>
+                        <a href="#spices">Seafood</a>
+                        <a href="#spices">Pasta</a>
+                        <a href="#spices">Fruits</a>
+                        <a href="#spices">Vegetables</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Occasions</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Thanksgiving Recipies</a>
+                        <a href="#fruits">Tailgating</a>
+                        <a href="#spices">Pie Recipies</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Cuisines</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Mexican</a>
+                        <a href="#fruits">Italian</a>
+                        <a href="#spices">Chinese</a>
+                        <a href="#spices">India</a>
+                        <a href="#spices">Japanese</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Kitchen Tips</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Instant Pot</a>
+                        <a href="#fruits">Air Fryer</a>
+                        <a href="#spices">Slow Cooker</a>
+                        <a href="#spices">Our Favourite Products</a>
+                        <a href="#spices">BBQ & Grilling</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">News</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Celebrity & Entertainment</a>
+                        <a href="#fruits">Fast Food</a>
+                        <a href="#spices">Trends</a>
+                        <a href="#spices">Grocery</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Features</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Dinner Fix</a>
+                        <a href="#fruits">Sweet Spot</a>
+                        <a href="#spices">In the Kitchen</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="about_us.html">About Us</a>
+                </div>
+            </div>
+            <!-- Get Magazine link -->
+            <a href="magazine.html" class="get-magazine">Get Magazine</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title">Tater Tot Casserole</div>
+        <div class="rating">
+            <span>⭐ 4.5 (599 Reviews)</span>
+        </div>
+        <div class="author">
+            <span>By barryzimm | Updated on October 10, 2024 | Tested by Allrecipes Test Kitchen</span>
+        </div>
+        <div class="image-container">
+            <video src="../Assets/recipies/tater_tot_casserole/video.mp4" controls autoplay muted>
+        </div>
+        <div class="internal-links">
+            <a href="#ingredients">Jump to Ingredients</a> |
+            <a href="#directions">Jump to Directions</a> |
+            <a href="#nutrition-facts">Jump to Nutritional Values</a>
+        </div>
+        <div class="time-info">
+            <div>Prep Time: 5 mins</div>
+            <div>Cook Time: 40 mins</div>
+            <div>Total Time: 45 mins</div>
+        </div>
+        <div class="description">
+            This Tater Tot casserole is a quick and easy dinner that everyone will love. Just four basic ingredients come together for this comforting dish.
+        </div>
+        <div class="ingredients" id="ingredients">
+            <h2>Ingredients</h2>
+            <ul>
+                <li>1 pound ground beef</li>
+                <li>1 (10.5 ounce) can condensed cream of mushroom soup</li>
+                <li>salt and ground black pepper to taste</li>
+                <li>1 (16 ounce) package frozen tater tots</li>
+                <li>2 cups shredded Cheddar cheese</li>
+            </ul>
+        </div>
+        <div class="directions" id="directions">
+            <h2>Directions</h2>
+            <div class="step">
+                <div class="step-title">Step 1:</div>
+                <p>Gather the ingredients. Preheat the oven to 350 degrees F (175 degrees C).</p>
+                <img src="../Assets/recipies/tater_tot_casserole/step1.webp" alt="Step 1">
+            </div>
+            <div class="step">
+                <div class="step-title">Step 2:</div>
+                <p>Heat a large skillet over medium-high heat. Cook and stir ground beef in the hot skillet until completely browned and crumbly, 7 to 10 minutes. Stir in condensed soup; season with salt and black pepper.</p>
+                <img src="../Assets/recipies/tater_tot_casserole/step2.webp" alt="Step 2">
+            </div>
+            <div class="step">
+                <div class="step-title">Step 3:</div>
+                <p>Transfer beef mixture to a 9x13-inch baking dish; layer tater tots evenly on top and sprinkle with Cheddar cheese.</p>
+                <img src="../Assets/recipies/tater_tot_casserole/step3.webp" alt="Step 3">
+            </div>
+            <div class="step">
+                <div class="step-title">Step 4:</div>
+                <p>Bake in the preheated oven until tater tots are golden brown and hot, 30 to 45 minutes.</p>
+                <img src="../Assets/recipies/tater_tot_casserole/step4.webp" alt="Step 4">
+            </div>
+            <div class="step">
+                <div class="step-title">Step 5:</div>
+                <p>Serve and enjoy!</p>
+                <img src="../Assets/recipies/tater_tot_casserole/step5.webp" alt="Step 5">
+            </div>
+        </div>
+        <div class="nutrition-facts" id="nutrition-facts">
+            <h2>Nutrition Facts (per serving)</h2>
+            <div class="nutrient-row">
+                <div class="amount">345</div>
+                <div class="amount">24g</div>
+                <div class="amount">17g</div>
+                <div class="amount">19g</div>
+            </div>
+            <div class="nutrient-row">
+                <div>Calories</div>
+                <div>Fat</div>
+                <div>Carbs</div>
+                <div>Protein</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -32,8 +32,6 @@
             margin-bottom: 30px;
             padding: 0 80px; /* Adding 80px padding on both sides */
             padding-top: 20px;
-            position: sticky;
-            top: 0;
             background-color: #FFFFFF;
             z-index: 1001; /* Increase z-index to ensure it stays on top */
         }
@@ -191,33 +189,6 @@
             display: inline-block;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .navbar .search-bar input {
-                width: 60%;
-            }
-
-            .navbar .top-line {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .navbar .bottom-line {
-                flex-direction: column;
-                align-items: flex-start;
-                margin-top: 30px;
-            }
-
-            .navbar .nav-links {
-                gap: 10px;
-                justify-content: flex-start;
-            }
-
-            .navbar .nav-links a {
-                font-size: 14px;
-            }
-        }
-
         .navbar .get-magazine {
             color: #FF6F00;
             text-decoration: none;
@@ -311,10 +282,14 @@
             font-family: 'Source Sans Pro', sans-serif;
             font-weight: bold; /* Make text bolder */
             transition: color 0.3s ease;
+            display: flex;
+            align-items: center; /* Vertically center the text */
         }
 
         .latest-news ul li a:hover {
             color: #333333;
+            text-decoration: underline;
+            text-decoration-color: #FF6F00; /* Orange underline color */
         }
 
         .gallery-container {
@@ -367,7 +342,7 @@
 
         .search-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
             padding: 20px;
             border: 2px solid #e6e6e6;
@@ -450,6 +425,15 @@
 
         .popular-tag:hover {
             background-color: #c33f22;
+        }
+
+        .spotlight-link {
+            text-decoration: none; /* Remove permanent underline */
+        }
+
+        .spotlight-link:hover .spotlight-post h2 {
+            text-decoration: underline;
+            text-decoration-color: #FF6F00; /* Orange underline color */
         }
     </style>
 </head>
@@ -580,29 +564,40 @@
 
     <!-- Spotlight Post and Latest News -->
     <div class="spotlight-container">
-        <div class="spotlight-post">
-            <img src="Assets/landing_page/top_post.jpg" alt="Spotlight Image">
-            <h2>20 Things to Cook This Month That Have Nothing to Do</h2> <h2>With Thanksgiving</h2>
-            <p>Here are dinner ideas for rest of the November</p>
-        </div>
+        <a href="spotlight.html" class="spotlight-link">
+            <div class="spotlight-post">
+                <img src="Assets/landing_page/top_post.jpg" alt="Spotlight Image">
+                <h2>20 Things to Cook This Month That Have Nothing to Do</h2> 
+                <h2>With Thanksgiving</h2>
+                <p>Here are dinner ideas for rest of the November</p>
+            </div>
+        </a>
         <div class="latest-news">
             <h3>Latest News & Updates</h3>
             <ul>
                 <li>
-                    <img src="Assets/landing_page/news1.webp" alt="News 1">
-                    <a href="#">New Recipe: Pumpkin Spice Latte</a>
+                    <a href="#">
+                        <img src="Assets/landing_page/news1.webp" alt="News 1">
+                        <span>New Recipe: Pumpkin Spice Latte</span>
+                    </a>
                 </li>
                 <li>
-                    <video src="Assets/landing_page/news2.mp4" loop></video>
-                    <a href="#">Top 10 Fall Desserts</a>
+                    <a href="#">
+                        <video src="Assets/landing_page/news2.mp4" loop></video>
+                        <span>Top 10 Fall Desserts</span>
+                    </a>
                 </li>
                 <li>
-                    <img src="Assets/landing_page/news3.webp" alt="News 3">
-                    <a href="#">How to Cook the Perfect Turkey</a>
+                    <a href="#">
+                        <img src="Assets/landing_page/news3.webp" alt="News 3">
+                        <span>How to Cook the Perfect Turkey</span>
+                    </a>
                 </li>
                 <li>
-                    <video src="Assets/landing_page/news4.mp4" loop></video>
-                    <a href="#">5 Tips for Holiday Baking</a>
+                    <a href="#">
+                        <video src="Assets/landing_page/news4.mp4" loop></video>
+                        <span>5 Tips for Holiday Baking</span>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -638,7 +633,7 @@
             <div class="gallery-item">
                 <img src="Assets/landing_page/gallery5.webp" alt="Casserole 5">
                 <div class="category">TATER TOTS</div>
-                <div class="product-name">Tater Tot Hotshish</div>
+                <div class="product-name">Tater Tot Casserole</div>
                 <div class="rating">★★★★★</div>
             </div>
             <div class="gallery-item">
@@ -662,14 +657,14 @@
         <div class="popular-searches">
             <h3>Popular Searches</h3>
             <div class="popular-tags">
-                <a href="#" class="popular-tag">Chicken</a>
-                <a href="#" class="popular-tag">Smoothies</a>
-                <a href="#" class="popular-tag">Banana Bread</a>
-                <a href="#" class="popular-tag">Lasagna</a>
-                <a href="#" class="popular-tag">Pancakes</a>
-                <a href="#" class="popular-tag">Meatloaf</a>
-                <a href="#" class="popular-tag">Cookies</a>
-                <a href="#" class="popular-tag">Tacos</a>
+                <a class="popular-tag">Chicken</a>
+                <a class="popular-tag">Smoothies</a>
+                <a class="popular-tag">Banana Bread</a>
+                <a class="popular-tag">Lasagna</a>
+                <a class="popular-tag">Pancakes</a>
+                <a class="popular-tag">Meatloaf</a>
+                <a class="popular-tag">Cookies</a>
+                <a class="popular-tag">Tacos</a>
             </div>
         </div>
     </div>
