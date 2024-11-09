@@ -340,6 +340,16 @@
             margin-top: 5px;
         }
 
+        .gallery-item a {
+            text-decoration: none; /* Remove permanent underline */
+            color: inherit; /* Inherit text color */
+        }
+
+        .gallery-item a:hover .product-name {
+            text-decoration: underline;
+            text-decoration-color: #FF6F00; /* Orange underline color */
+        }
+
         .search-container {
             display: flex;
             justify-content: space-around;
@@ -576,25 +586,25 @@
             <h3>Latest News & Updates</h3>
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="recipies/pumpkin_spice_latte.html">
                         <img src="Assets/landing_page/news1.webp" alt="News 1">
                         <span>New Recipe: Pumpkin Spice Latte</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="recipies/top_10_fall_recipies.html">
                         <video src="Assets/landing_page/news2.mp4" loop></video>
-                        <span>Top 10 Fall Desserts</span>
+                        <span>Top 10 Fall Recipies</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="recipies/how_to_cook_a_turkey.html">
                         <img src="Assets/landing_page/news3.webp" alt="News 3">
                         <span>How to Cook the Perfect Turkey</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="recipies/5_tips_for_holiday_baking.html">
                         <video src="Assets/landing_page/news4.mp4" loop></video>
                         <span>5 Tips for Holiday Baking</span>
                     </a>
@@ -607,40 +617,52 @@
         <div class="gallery-title">Casserole Classics</div>
         <div class="gallery">
             <div class="gallery-item">
-                <img src="Assets/landing_page/gallery1.webp" alt="Casserole 1">
-                <div class="category">MACRONI AND CHEESE RECIPIE</div>
-                <div class="product-name">Chili Dog Mac and Cheese</div>
-                <div class="rating">★★★★☆</div>
+                <a href="recipies/chili_dog_mac_and_cheese.html">
+                    <img src="Assets/landing_page/gallery1.webp" alt="Casserole 1">
+                    <div class="category">MACRONI AND CHEESE RECIPIE</div>
+                    <div class="product-name">Chili Dog Mac and Cheese</div>
+                    <div class="rating">★★★★☆</div>
+                </a>
             </div>
             <div class="gallery-item">
-                <img src="Assets/landing_page/gallery2.webp" alt="Casserole 2">
-                <div class="category">PASTA</div>
-                <div class="product-name">Chicker Carbonara Pasta Bake</div>
-                <div class="rating">★★★★★</div>
+                <a href="recipies/chicken_carbonara_pasta_bake.html">
+                    <img src="Assets/landing_page/gallery2.webp" alt="Casserole 2">
+                    <div class="category">PASTA</div>
+                    <div class="product-name">Chicker Carbonara Pasta Bake</div>
+                    <div class="rating">★★★★★</div>
+                </a>
             </div>
             <div class="gallery-item">
-                <img src="Assets/landing_page/gallery3.webp" alt="Casserole 3">
-                <div class="category">HAM</div>
-                <div class="product-name">Ham, Potato and Broccoli Casserole</div>
-                <div class="rating">★★★☆☆</div>
+                <a href="recipies/ham_potato_and_broccoli_casserole.html">
+                    <img src="Assets/landing_page/gallery3.webp" alt="Casserole 3">
+                    <div class="category">HAM</div>
+                    <div class="product-name">Ham, Potato and Broccoli Casserole</div>
+                    <div class="rating">★★★☆☆</div>
+                </a>
             </div>
             <div class="gallery-item">
-                <img src="Assets/landing_page/gallery4.webp" alt="Casserole 4">
-                <div class="category">GROUND BEEF</div>
-                <div class="product-name">Moussaka</div>
-                <div class="rating">★★★★☆</div>
+                <a href="recipies/moussaka.html">
+                    <img src="Assets/landing_page/gallery4.webp" alt="Casserole 4">
+                    <div class="category">GROUND BEEF</div>
+                    <div class="product-name">Moussaka</div>
+                    <div class="rating">★★★★☆</div>
+                </a>
             </div>
             <div class="gallery-item">
-                <img src="Assets/landing_page/gallery5.webp" alt="Casserole 5">
-                <div class="category">TATER TOTS</div>
-                <div class="product-name">Tater Tot Casserole</div>
-                <div class="rating">★★★★★</div>
+                <a href="recipies/tater_tot_casserole.html">
+                    <img src="Assets/landing_page/gallery5.webp" alt="Casserole 5">
+                    <div class="category">TATER TOTS</div>
+                    <div class="product-name">Tater Tot Casserole</div>
+                    <div class="rating">★★★★★</div>
+                </a>
             </div>
             <div class="gallery-item">
-                <img src="Assets/landing_page/gallery6.webp" alt="Casserole 6">
-                <div class="category">TUNA</div>
-                <div class="product-name">Chef John's Tuna Noodle Casserole</div>
-                <div class="rating">★★★☆☆</div>
+                <a href="recipies/chef_johns_tuna_noodle_casserole.html">
+                    <img src="Assets/landing_page/gallery6.webp" alt="Casserole 6">
+                    <div class="category">TUNA</div>
+                    <div class="product-name">Chef John's Tuna Noodle Casserole</div>
+                    <div class="rating">★★★☆☆</div>
+                </a>
             </div>
         </div>
     </div>

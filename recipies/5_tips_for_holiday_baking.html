@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Fall Recipes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Copperpot&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        /* Navbar container */
+        .navbar {
+            background-color: #FFFFFF;
+            color: #333333;
+            padding: 10px 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Adding shadow */
+        }
+
+        /* First line: logo, search bar, and login button */
+        .navbar .top-line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 0 80px; /* Adding 80px padding on both sides */
+            padding-top: 20px;
+            background-color: #FFFFFF;
+            z-index: 1001; /* Increase z-index to ensure it stays on top */
+        }
+
+        .navbar .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #FF6F00;
+            text-decoration: none;
+            margin-left: 0;
+            align-self: center;
+        }
+
+        .navbar .search-bar {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar .search-bar input {
+            width: 250px;
+            padding: 6px 12px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            font-size: 14px;
+            padding-left: 35px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23999" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 10-1.397 1.397l3.85 3.85a1 1 0 001.414-1.414l-3.85-3.85zm-5.242 1.156a5 5 0 110-10 5 5 0 010 10z"/></svg>') no-repeat 10px center;
+            background-size: 16px 16px;
+        }
+
+        .navbar .login-link {
+            display: flex;
+            align-items: center;
+            background-color: #FF6F00;
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 14px;
+            margin-right: 0;
+        }
+
+        /* Second line: nav links */
+        .navbar .bottom-line {
+            margin-top: 0;
+            text-transform: none;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 80px; /* Increasing padding to 80px on both sides */
+            z-index: 1000; /* Ensure it stays below the top line */
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 16px;
+            font-weight: bolder;
+            padding: 8px;
+            text-transform: uppercase;
+            position: relative;
+            transition: all 0.3s ease; /* Smooth transition for underline and color */
+        }
+
+        /* Add orange underline effect on hover for both main links */
+        .navbar .nav-links a:hover,
+        .navbar .nav-links .dropdown:hover > a {
+            text-decoration: underline;
+            text-decoration-color: #FF6F00; /* Orange underline color */
+        }
+
+        /* Dropdown menu container */
+        .navbar .nav-links .dropdown {
+            position: relative;
+        }
+
+        /* Dropdown button */
+        .navbar .nav-links .dropdown > a {
+            cursor: pointer;
+        }
+
+        /* Dropdown menu items */
+        .navbar .nav-links .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        /* Links inside dropdown */
+        .navbar .nav-links .dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: #333333;
+            font-weight: normal;
+            text-transform: capitalize;
+            transition: background-color 0.3s ease; /* Smooth transition for background color */
+        }
+
+        /* Add grey background effect on hover for dropdown menu links */
+        .navbar .nav-links .dropdown-content a:hover {
+            background-color: #f0f0f0; /* Grey background on hover */
+        }
+
+        /* Show the dropdown on hover */
+        .navbar .nav-links .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar .get-magazine {
+            color: #FF6F00;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase; /* Capitalize text */
+        }
+
+        .container {
+            max-width: 700px; /* Decrease the width */
+            margin: 20px auto 20px 150px; /* Shift to the left */
+            padding: 20px;
+            background: #ffff;
+            text-align: justify;
+        }
+        .title {
+            font-size: 2em;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            color: #333333;
+            text-align: center; /* Keep title centered */
+        }
+        .author {
+            text-align: justify;
+            margin: 10px 0;
+            color: #666666;
+        }
+        .recipe {
+            margin-top: 20px;
+            text-align: justify;
+        }
+        .recipe-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333333;
+            text-align: justify;
+            font-family: 'Source Sans Pro', sans-serif; /* Update font */
+        }
+        .recipe-description {
+            margin: 10px 0;
+            color: #666666;
+            text-align: justify;
+        }
+        .recipe-photo {
+            width: 100%; /* Ensure image width matches the width of the div */
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .recipe-content {
+            margin: 10px 0;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <!-- First line: Logo, Search bar, and Login button -->
+        <div class="top-line">
+            <!-- Logo -->
+            <a href="/" class="logo">AllRecipes</a>
+
+            <!-- Search bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search recipes...">
+            </div>
+
+            <!-- Login link without user icon -->
+            <a href="login.html" class="login-link">Login</a>
+        </div>
+
+        <!-- Second line: Links -->
+        <div class="bottom-line">
+            <!-- Links -->
+            <div class="nav-links">
+                <!-- Dropdown Menu -->
+                <div class="dropdown">
+                    <a href="#">Dinner</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">5-Ingredient Dinners</a>
+                        <a href="#fruits">One-Pot Meals</a>
+                        <a href="#spices">Quick & Easy</a>
+                        <a href="#spices">30-Minute Meals</a>
+                        <a href="#spices">Family Dinners</a>
+                        <a href="#spices">Comfort Food</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Meals</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Breakfast</a>
+                        <a href="#fruits">Lunch</a>
+                        <a href="#spices">Healthy</a>
+                        <a href="#spices">Appetizers</a>
+                        <a href="#spices">Salads</a>
+                        <a href="#spices">Drinks</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Ingredients</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Chicken</a>
+                        <a href="#fruits">Beef</a>
+                        <a href="#spices">Pork</a>
+                        <a href="#spices">Seafood</a>
+                        <a href="#spices">Pasta</a>
+                        <a href="#spices">Fruits</a>
+                        <a href="#spices">Vegetables</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Occasions</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Thanksgiving Recipies</a>
+                        <a href="#fruits">Tailgating</a>
+                        <a href="#spices">Pie Recipies</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Cuisines</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Mexican</a>
+                        <a href="#fruits">Italian</a>
+                        <a href="#spices">Chinese</a>
+                        <a href="#spices">India</a>
+                        <a href="#spices">Japanese</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Kitchen Tips</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Instant Pot</a>
+                        <a href="#fruits">Air Fryer</a>
+                        <a href="#spices">Slow Cooker</a>
+                        <a href="#spices">Our Favourite Products</a>
+                        <a href="#spices">BBQ & Grilling</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">News</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Celebrity & Entertainment</a>
+                        <a href="#fruits">Fast Food</a>
+                        <a href="#spices">Trends</a>
+                        <a href="#spices">Grocery</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#">Features</a>
+                    <div class="dropdown-content">
+                        <a href="#vegetables">Dinner Fix</a>
+                        <a href="#fruits">Sweet Spot</a>
+                        <a href="#spices">In the Kitchen</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="about_us.html">About Us</a>
+                </div>
+            </div>
+            <!-- Get Magazine link -->
+            <a href="magazine.html" class="get-magazine">Get Magazine</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="title">5 Tips for Holiday Baking</div>
+        <div class="author">By Vanessa Greaves</div>
+        <div class="author">Pie-making is a true labor of love, but because it can also be time-consuming, we see nothing wrong with taking a shortcut or two when necessary. If you're craving pie but don't have several hours to invest in making a homemade crust (or you don't trust your pastry skills just yet!), going the store-bought route is a perfectly reasonable shortcut that saves time and labor.
+
+        Yet as convenient as they are, store-bought crusts often fall short in texture and flavor compared to crusts made from scratch. Luckily, we've consulted a group of professional bakers and pastry chefs to gather their top tips for making a store-bought pie crust taste like homemade, and here's what they had to tell us:</div>
+        <img src="../Assets/recipies/5_tips_for_holiday_baking/image.webp" alt="5 Tips for Holiday Baking" class="recipe-photo">
+        <div class="author">Published on December 14, 2018</div>
+        <div class="recipe">
+            <div class="recipe-title">1. Choose a reputable brand that uses real butter</div>
+            <div class="recipe-content">Pastry chef, recipe developer, and food blogger Claire Wells of Baked By Claire tells us although generic-brand pie crusts often ring in at a lower price than brand-name versions, it's best to take the guesswork out of the equation by "finding a well-recommended brand like Pillsbury and following the instructions on the package." She also advises giving the ingredients list a careful read, saying you should "​​choose a brand that uses butter. Even if it's only a small amount, it will likely taste better than those that don't use any butter at all."
+
+            Recipe developer and baking blogger Michelle Keldgord of BakingHow agrees with Wells' emphasis on butter in store-bought crusts, adding "Sure, lard and other fats can give you great flavor and texture, but in my opinion, nothing beats butter. Butter will provide a rich flavor and a desirably flaky texture."</div>
+        </div>
+        <div class="recipe">
+            <div class="recipe-title">2. Buy sheets of pre-made pie dough and shape the crust yourself</div>
+            <div class="recipe-content">"When shopping for pie crust at the grocery store, you'll likely notice two crust styles available for sale: sheets of pie crust and pre-formed crusts already placed into baking tins. In some cases, the pre-formed option is the only viable one; for instance, if you're buying a cookie crust or a graham cracker crust. However, if you're seeking a traditional pie dough, chef-instructor Kierin Baldwin of the Institute of Culinary Education recommends "using sheets of pie crust rather than pre-shaped shells, since putting your hands to the dough to shape the shell will make it appear more homemade."</div>
+        </div>
+        <div class="recipe">
+            <div class="recipe-title">3. A brush of butter (and maybe a sprinkle of cookie crumbs) adds moisture and texture</div>
+            <div class="recipe-content">Since store-bought pie crusts have a tendency to dry out, our experts suggest using a moistening agent to imbue the crust with texture and flavor. Wells ups the ante by adding crushed cookies: "My favorite way to upcycle store-bought pastry is to brush it with melted butter and sprinkle over crushed cookies. I like to use buttery shortbread and a pinch of cinnamon. Make sure the cookies are crushed pretty fine — a food processor works best for this. Then gently press the crumbs into the pastry surface by adding a layer of parchment paper over the top and rolling your hand over the surface a couple of times to make sure it sticks. Alternatively, you can dust your counter with the cookie crumbs and lay the pastry on top. Roll it into the crumbs just enough so it sticks."</div>
+        </div>
+        <div class="recipe">
+            <div class="recipe-title">4. Add color, flavor, and sparkle with a cream wash, sugar, and a touch of booze</div>
+            <div class="recipe-content">Chef Jason Smith, a winner of Food Network's "Holiday Baking Championship" and "Next Food Network Star" and a current participant in the HUNGRY Virtual Xperience, also likes to layer melted butter on top of a store-bought pie crust. However, he suggests adding a couple of secret ingredients: vanilla and bourbon. "I mix ¼ cup of melted butter, 1 teaspoon of vanilla, and ½ tablespoon of bourbon together and brush the inside edges and bottom of the crust before I blind bake, or before I fill the shell to make a baked pie. If I'm doing a two-crust pie, the crust I use on top also gets brushed. The buttery goodness, the sweet vanilla, and the oaky bourbon will take your pie crust from 'Oh, it's store-bought.' to 'Now that's homemade!'" Smith says.
+
+            Baldwin has a slightly different strategy for moistening a store-bought crust, explaining "I firmly believe in brushing a heavy cream wash onto homemade pie crusts before baking (rather than egg wash), and I think doing the same to the edge of a store-bought crust will give it a touch of real dairy flavor and help it brown perfectly. A delicate sprinkle of turbinado sugar on the edge of the crust just after the cream wash will zhuzh up the texture a bit too."
+                
+            </div>
+        </div>
+        <div class="recipe">
+            <div class="recipe-title">5. Focus on making an excellent homemade filling for your pie</div>
+            <div class="recipe-content">Ultimately, our experts agreed the single best thing you can do to make a store-bought crust taste homemade involves a flavorful homemade filling. "In terms of taste, the best way to upcycle a store-bought pie crust is to put a homemade filling into it. You can't totally change the taste or texture of a store-bought crust, but you can distract people from it with an amazing homemade filling. A [great] filling will fool most people into thinking the whole thing is from scratch," Baldwin insists.</div>
+        </div>
+    </div>
+</body>
+</html>
