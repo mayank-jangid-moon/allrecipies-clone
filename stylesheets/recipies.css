@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+body {
+    background-color: #ffffff;
+}
+.container {
+    max-width: 700px; /* Decrease the width */
+    margin: 20px auto 20px 150px; /* Shift to the left */
+    padding: 20px;
+    background: #fff;
+}
+.title {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    color: #333333;
+}
+.rating, .author, .buttons {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+.rating span {
+    color: #e67e22;
+    font-size: 1.2em;
+}
+.buttons button {
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #FF6F00; /* Match color from index.html */
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px; /* Add border-radius for curved buttons */
+}
+.image-container {
+    margin: 20px 0;
+    text-align: center;
+}
+.image-container video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+.internal-links {
+    text-align: center;
+    margin: 20px 0;
+}
+.internal-links a {
+    color: #FF6F00;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.time-info {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f9c74f;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.description {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #333333;
+    line-height: 1.5;
+    text-align: justify;
+}
+.ingredients {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #333333;
+    line-height: 1.5;
+    text-align: justify;
+}
+.ingredients ul {
+    list-style-type: disc; /* Bulleted list */
+    padding-left: 20px; /* Add padding for list bullets */
+}
+.ingredients ul li {
+    margin-bottom: 10px;
+    position: relative;
+}
+.ingredients ul li::before {
+    content: "•";
+    color: #e67e22; /* Orange color for bullet points */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+.directions {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #333333;
+    line-height: 1.5;
+    text-align: justify;
+}
+.directions .step-title {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.directions p {
+    margin-bottom: 10px;
+}
+.directions img {
+    width: 100%; /* Make the width of the image the same as the division */
+    border-radius: 10px;
+}
+.image-end {
+    margin-top: 20px;
+    text-align: center;
+}
+.image-end img {
+    width: 100%; /* Make the width of the image the same as the division */
+    border-radius: 10px;
+}
+.nutrition-facts {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #333333;
+    line-height: 1.5;
+    text-align: justify;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+}
+.nutrition-facts h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.nutrition-facts .nutrient-row {
+    display: flex;
+    justify-content: space-between;
+}
+.nutrition-facts .nutrient-row div {
+    flex: 1;
+    text-align: center;
+}
+.nutrition-facts .nutrient-row div.amount {
+    font-weight: bold;
+}
+html {
+    scroll-behavior: smooth;
+}

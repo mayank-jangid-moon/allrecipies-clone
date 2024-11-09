@@ -7,445 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Copperpot&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Source Sans Pro', sans-serif;
-        }
-
-        /* Navbar container */
-        .navbar {
-            background-color: #FFFFFF;
-            color: #333333;
-            padding: 10px 20px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Adding shadow */
-        }
-
-        /* First line: logo, search bar, and login button */
-        .navbar .top-line {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            padding: 0 80px; /* Adding 80px padding on both sides */
-            padding-top: 20px;
-            background-color: #FFFFFF;
-            z-index: 1001; /* Increase z-index to ensure it stays on top */
-        }
-
-        .navbar .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #FF6F00;
-            text-decoration: none;
-            margin-left: 0;
-            align-self: center;
-        }
-
-        .navbar .search-bar {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-        .navbar .search-bar input {
-            width: 250px;
-            padding: 6px 12px;
-            border: 1px solid #000000;
-            border-radius: 4px;
-            font-size: 14px;
-            padding-left: 35px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23999" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 10-1.397 1.397l3.85 3.85a1 1 0 001.414-1.414l-3.85-3.85zm-5.242 1.156a5 5 0 110-10 5 5 0 010 10z"/></svg>') no-repeat 10px center;
-            background-size: 16px 16px;
-        }
-
-        .navbar .login-link {
-            display: flex;
-            align-items: center;
-            background-color: #FF6F00;
-            color: #FFFFFF;
-            padding: 8px 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: normal;
-            font-size: 14px;
-            margin-right: 0;
-        }
-
-        /* Second line: nav links */
-        .navbar .bottom-line {
-            margin-top: 0;
-            text-transform: none;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 80px; /* Increasing padding to 80px on both sides */
-            z-index: 1000; /* Ensure it stays below the top line */
-        }
-
-        .navbar .nav-links {
-            display: flex;
-            gap: 20px;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            position: relative;
-        }
-
-        .navbar .nav-links a {
-            text-decoration: none;
-            color: #333333;
-            font-size: 16px;
-            font-weight: bolder;
-            padding: 8px;
-            text-transform: uppercase;
-            position: relative;
-            transition: all 0.3s ease; /* Smooth transition for underline and color */
-        }
-
-        /* Add orange underline effect on hover for both main links */
-        .navbar .nav-links a:hover,
-        .navbar .nav-links .dropdown:hover > a {
-            text-decoration: underline;
-            text-decoration-color: #FF6F00; /* Orange underline color */
-        }
-
-        /* Dropdown menu container */
-        .navbar .nav-links .dropdown {
-            position: relative;
-        }
-
-        /* Dropdown button */
-        .navbar .nav-links .dropdown > a {
-            cursor: pointer;
-        }
-
-        /* Dropdown menu items */
-        .navbar .nav-links .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            min-width: 160px;
-            z-index: 1;
-        }
-
-        /* Links inside dropdown */
-        .navbar .nav-links .dropdown-content a {
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            color: #333333;
-            font-weight: normal;
-            text-transform: capitalize;
-            transition: background-color 0.3s ease; /* Smooth transition for background color */
-        }
-
-        /* Add grey background effect on hover for dropdown menu links */
-        .navbar .nav-links .dropdown-content a:hover {
-            background-color: #f0f0f0; /* Grey background on hover */
-        }
-
-        /* Show the dropdown on hover */
-        .navbar .nav-links .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Blue information bar */
-        .info-bar {
-            /* margin-top: 50px; */
-            background-color: #004990;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            font-size: 25px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            font-family: 'Cinzel', serif;
-        }
-
-        .info-bar span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .info-bar .highlight {
-            color: #FFD700; /* Gold color for highlight */
-            font-weight: bold;
-            font-size: 28px;
-        }
-
-        /* Icon circles */
-        .info-bar .dot {
-            height: 8px;
-            width: 8px;
-            background-color: #FF6F00; /* Orange dot color */
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .navbar .get-magazine {
-            color: #FF6F00;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            text-transform: uppercase; /* Capitalize text */
-        }
-
-        /* Spotlight post styles */
-        .spotlight-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 20px;
-            margin: 40px 0;
-            margin-left: 150px;
-        }
-
-        .spotlight-post {
-            flex: 3;
-            text-align: left;
-        }
-
-        .spotlight-post img {
-            width: auto; /* Ensure the image occupies the same width as the text */
-            height: auto;
-            border-radius: 8px;
-            /* Remove box shadow */
-            margin-top: 20px;
-        }
-
-        .spotlight-post h2 {
-            margin-top: 20px;
-            font-size: 30px;
-            color: #333333;
-            font-family: 'Playfair Display', serif;
-            max-width: 100%; /* Ensure text does not exceed image width */
-        }
-
-        .spotlight-post h2 + h2 {
-            margin-top: 5px; /* Decrease the spacing between the two h2 elements */
-        }
-
-        .spotlight-post p {
-            margin-top: 10px;
-            font-size: 18px;
-            color: #666666;
-            font-family: 'Source Sans Pro', sans-serif;
-        }
-
-        .latest-news {
-            flex: 1;
-            max-width: 30%; /* Increase the width of the news section */
-            background-color: #f5f6ea; /* Change background color to #f5f6ea */
-            padding: 20px;
-            border-radius: 8px;
-            /* Remove box shadow */
-            margin-right: 150px;
-            margin-top: 20px;
-        }
-
-        .latest-news h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: #333333;
-            font-family: 'Cinzel', serif;
-        }
-
-        .latest-news ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .latest-news ul li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .latest-news ul li img,
-        .latest-news ul li video {
-            width: 120px;
-            height: 80px;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
-
-        .latest-news ul li a {
-            text-decoration: none;
-            color: #000000; /* Change text color to black */
-            font-family: 'Source Sans Pro', sans-serif;
-            font-weight: bold; /* Make text bolder */
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center; /* Vertically center the text */
-        }
-
-        .latest-news ul li a:hover {
-            color: #333333;
-            text-decoration: underline;
-            text-decoration-color: #FF6F00; /* Orange underline color */
-        }
-
-        .gallery-container {
-            margin: 40px 150px; /* Add margin to separate from other content */
-        }
-
-        .gallery-title {
-            font-size: 28px;
-            font-family: 'Cinzel', serif;
-            color: #333333;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .gallery-item {
-            text-align: center;
-            text-align: justify;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .gallery-item .category {
-            font-size: 14px;
-            color: #666666;
-            margin-top: 10px;
-        }
-
-        .gallery-item .product-name {
-            font-size: 18px;
-            color: #333333;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-
-        .gallery-item .rating {
-            font-size: 16px;
-            color: #FF6F00;
-            margin-top: 5px;
-        }
-
-        .gallery-item a {
-            text-decoration: none; /* Remove permanent underline */
-            color: inherit; /* Inherit text color */
-        }
-
-        .gallery-item a:hover .product-name {
-            text-decoration: underline;
-            text-decoration-color: #FF6F00; /* Orange underline color */
-        }
-
-        .search-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 20px;
-            border: 2px solid #e6e6e6;
-            /* width: 90%; Match the width of other divisions */
-            margin-top: 20px;
-            margin-left: 150px;
-            margin-right: 150px;
-            margin-bottom: 20px;
-            font-family: Arial, sans-serif;
-        }
-
-        .search-prompt {
-            display: flex;
-            align-items: center;
-        }
-
-        .search-prompt h2 {
-            font-size: 18px;
-            margin: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-prompt h2 img {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
-        }
-
-        .search-bar {
-            margin-left: 40px; /* Increase spacing between search box and text buttons */
-            display: flex;
-            align-items: center;
-        }
-
-        .search-bar input {
-            width: 250px;
-            padding: 8px;
-            font-size: 14px;
-            border: 1px solid #e6e6e6;
-            border-radius: 4px 0 0 4px;
-        }
-
-        .search-bar button {
-            padding: 8px;
-            background-color: #e4572e;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .popular-searches {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .popular-searches h3 {
-            font-size: 14px;
-            margin: 0 0 10px;
-        }
-
-        .popular-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            max-width: 400px; /* Adjust width to fit buttons into two horizontal lines */
-        }
-
-        .popular-tag {
-            padding: 6px 12px;
-            background-color: #e4572e;
-            color: #fff;
-            border-radius: 4px;
-            font-size: 14px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .popular-tag:hover {
-            background-color: #c33f22;
-        }
-
-        .spotlight-link {
-            text-decoration: none; /* Remove permanent underline */
-        }
-
-        .spotlight-link:hover .spotlight-post h2 {
-            text-decoration: underline;
-            text-decoration-color: #FF6F00; /* Orange underline color */
-        }
-    </style>
+    <link rel="stylesheet" href="stylesheets/navbar.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
 </head>
 <body>
 
@@ -473,87 +36,87 @@
                 <div class="dropdown">
                     <a href="#">Dinner</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">5-Ingredient Dinners</a>
-                        <a href="#fruits">One-Pot Meals</a>
-                        <a href="#spices">Quick & Easy</a>
-                        <a href="#spices">30-Minute Meals</a>
-                        <a href="#spices">Family Dinners</a>
-                        <a href="#spices">Comfort Food</a>
+                        <a href="#">5-Ingredient Dinners</a>
+                        <a href="#">One-Pot Meals</a>
+                        <a href="#">Quick & Easy</a>
+                        <a href="#">30-Minute Meals</a>
+                        <a href="#">Family Dinners</a>
+                        <a href="#">Comfort Food</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">Meals</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Breakfast</a>
-                        <a href="#fruits">Lunch</a>
-                        <a href="#spices">Healthy</a>
-                        <a href="#spices">Appetizers</a>
-                        <a href="#spices">Salads</a>
-                        <a href="#spices">Drinks</a>
+                        <a href="#">Breakfast</a>
+                        <a href="#">Lunch</a>
+                        <a href="#">Healthy</a>
+                        <a href="#">Appetizers</a>
+                        <a href="#">Salads</a>
+                        <a href="#">Drinks</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">Ingredients</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Chicken</a>
-                        <a href="#fruits">Beef</a>
-                        <a href="#spices">Pork</a>
-                        <a href="#spices">Seafood</a>
-                        <a href="#spices">Pasta</a>
-                        <a href="#spices">Fruits</a>
-                        <a href="#spices">Vegetables</a>
+                        <a href="#">Chicken</a>
+                        <a href="#">Beef</a>
+                        <a href="#">Pork</a>
+                        <a href="#">Seafood</a>
+                        <a href="#">Pasta</a>
+                        <a href="#">Fruits</a>
+                        <a href="#">Vegetables</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">Occasions</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Thanksgiving Recipies</a>
-                        <a href="#fruits">Tailgating</a>
-                        <a href="#spices">Pie Recipies</a>
+                        <a href="#">Thanksgiving Recipies</a>
+                        <a href="#">Tailgating</a>
+                        <a href="#">Pie Recipies</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">Cuisines</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Mexican</a>
-                        <a href="#fruits">Italian</a>
-                        <a href="#spices">Chinese</a>
-                        <a href="#spices">India</a>
-                        <a href="#spices">Japanese</a>
+                        <a href="#">Mexican</a>
+                        <a href="#">Italian</a>
+                        <a href="#">Chinese</a>
+                        <a href="#">India</a>
+                        <a href="#">Japanese</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">Kitchen Tips</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Instant Pot</a>
-                        <a href="#fruits">Air Fryer</a>
-                        <a href="#spices">Slow Cooker</a>
-                        <a href="#spices">Our Favourite Products</a>
-                        <a href="#spices">BBQ & Grilling</a>
+                        <a href="#">Instant Pot</a>
+                        <a href="#">Air Fryer</a>
+                        <a href="#">Slow Cooker</a>
+                        <a href="#">Our Favourite Products</a>
+                        <a href="#">BBQ & Grilling</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">News</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Celebrity & Entertainment</a>
-                        <a href="#fruits">Fast Food</a>
-                        <a href="#spices">Trends</a>
-                        <a href="#spices">Grocery</a>
+                        <a href="#">Celebrity & Entertainment</a>
+                        <a href="#">Fast Food</a>
+                        <a href="#">Trends</a>
+                        <a href="#">Grocery</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
                     <a href="#">Features</a>
                     <div class="dropdown-content">
-                        <a href="#vegetables">Dinner Fix</a>
-                        <a href="#fruits">Sweet Spot</a>
-                        <a href="#spices">In the Kitchen</a>
+                        <a href="#">Dinner Fix</a>
+                        <a href="#">Sweet Spot</a>
+                        <a href="#">In the Kitchen</a>
                     </div>
                 </div>
 
@@ -574,7 +137,7 @@
 
     <!-- Spotlight Post and Latest News -->
     <div class="spotlight-container">
-        <a href="spotlight.html" class="spotlight-link">
+        <a href="recipies/20_things_to_cook.html" class="spotlight-link">
             <div class="spotlight-post">
                 <img src="Assets/landing_page/top_post.jpg" alt="Spotlight Image">
                 <h2>20 Things to Cook This Month That Have Nothing to Do</h2> 

@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.pdf-container {
+    flex-grow: 1;
+    margin-top: 135px; /* Add more margin to avoid overlapping with navbar */
+}
+
+.pdf-container embed {
+    width: 100%;
+    height: calc(100vh - 120px); /* Full height minus navbar height */
+}
+
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+.container {
+    width: 70%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 25%; /* Add margin to segregate from sidebar */
+    margin-top: 150px; /* Add margin to segregate from navbar */
+}
+
+.sidebar {
+    width: 20%;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full vertical height */
+    overflow-y: auto;
+    padding-top: 100px; /* Add padding to avoid overlapping with navbar */
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.sidebar a:hover {
+    background-color: #f0f0f0;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #FF6F00;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #004990;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #FF6F00;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.info-bar {
+    background-color: #004990;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-family: 'Cinzel', serif;
+    margin-top: 100px; /* Add margin to avoid overlapping with navbar */
+}
+
+.info-bar span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-bar .highlight {
+    color: #FFD700; /* Gold color for highlight */
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.info-bar .dot {
+    height: 8px;
+    width: 8px;
+    background-color: #FF6F00; /* Orange dot color */
+    border-radius: 50%;
+    display: inline-block;
+}
