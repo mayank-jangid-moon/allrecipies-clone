@@ -34,7 +34,6 @@ html {
     margin: 0 auto;
     padding: 20px;
     background: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-left: 25%; /* Add margin to segregate from sidebar */
     margin-top: 150px; /* Add margin to segregate from navbar */
 }
@@ -43,13 +42,12 @@ html {
     width: 20%;
     padding: 20px;
     background: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh; /* Full vertical height */
     overflow-y: auto;
-    padding-top: 100px; /* Add padding to avoid overlapping with navbar */
+    padding-top: 170px; /* Add padding to avoid overlapping with navbar */
 }
 
 .sidebar a {
