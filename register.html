@@ -109,7 +109,8 @@
                 <input type="date" id="dob" name="dob" required min="1900-01-01">
 
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required minlength="8" pattern="(?=.*\d)(?=.*[A-Z])(?=.*\W).+">
+                <input type="password" id="password" name="password" required minlength="8" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*\W).{8,}$
+                ">
 
                 <input type="submit" value="Register">
             </form>
